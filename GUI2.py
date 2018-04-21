@@ -6,9 +6,11 @@ import datetime
 now = datetime.datetime.now()
 
 def titan():
-    # os.system('python Tweet_Dumper.py Titan')
-    # os.system('python Stock_Dumper.py Titan')
-    os.system('python RNN2.py Titan')
+    os.system('python RNN2.py')
+def ab():
+    os.system('python RNN20.py')
+def Inox():
+    os.system('python RNN200.py')
 
 window= Tk()
 w = window.winfo_screenwidth()
@@ -24,10 +26,8 @@ container.pack(expand = True, fill = "both")
 Label(container, text="Date Today", font=("Times", "16","bold"),bg = "#EEF3F7",fg="#737373").pack( fill='x')
 Label(container, text=(now.strftime("%Y-%m-%d")), font=("Times", "16","bold"),bg = "#EEF3F7",fg="#737373").pack(fill='x')
 Label(container, text="Click the Company button for Predicitng Price and Sentiment Analysis",font=("Times", "16","bold"),bg = "#EEF3F7",fg="#737373").pack(fill='x')
-Predict_TCS = Button(container,text="TCS",fg="black",bg ="#f7e7bb", font=("Times", "16","bold")).pack(fill='x')
 Predict_Titan = Button(container,text="Titan", command=titan,fg="black",bg ="#f7e7bb", font=("Times", "16","bold")).pack(fill='x')
-Predict_TataMotors = Button(container,text="TataMotors",fg="black",bg ="#f7e7bb", font=("Times", "16","bold")).pack(fill='x')
-Predict_Hinduja = Button(container,text="Hinduja",fg="black",bg ="#f7e7bb", font=("Times", "16","bold")).pack(fill='x')
-Predict_Mahindra = Button(container,text="Mahindra",fg="black",bg ="#f7e7bb", font=("Times", "16","bold")).pack(fill='x')
+Predict_AB = Button(container,text="Axis Bank", command=ab,fg="black",bg ="#f7e7bb", font=("Times", "16","bold")).pack(fill='x')
+Predict_Mahindra = Button(container,text="Inox Lesiure", command=Inox,fg="black",bg ="#f7e7bb", font=("Times", "16","bold")).pack(fill='x')
 
 window.mainloop()

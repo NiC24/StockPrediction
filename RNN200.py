@@ -16,7 +16,7 @@ from sklearn.preprocessing import MinMaxScaler
 from textblob import TextBlob
 
 
-training_set=pd.read_csv("Titan\Titan.csv")   #reading csv file
+training_set=pd.read_csv("Inox\Inox.csv")   #reading csv file
 training_set.head()			   #print first five rows
 
 training_set1=training_set.iloc[:,1:2] 	   #selecting the second column
@@ -115,7 +115,7 @@ def predict_price(dates,prices,x):
 	predicted_price =linear_mod.predict(x)
 	return predicted_price[0][0],linear_mod.coef_[0][0] ,linear_mod.intercept_[0]
 
-get_data("Titan\Titan-Regression.csv") # calling get_data method by passing the csv file to it
+get_data("Inox\Inox-Regression.csv") # calling get_data method by passing the csv file to it
 
 
 
@@ -124,7 +124,7 @@ get_data("Titan\Titan-Regression.csv") # calling get_data method by passing the 
 predicted_price, coefficient, constant = predict_price(dates,prices,26)
 
 #NLP
-file = open("Titan/titanwatches_tweets.txt","r");
+file = open("Inox/InoxMovies_tweets.txt","r");
 t = file.read();
 bobo = TextBlob(t)
 
@@ -144,8 +144,8 @@ else:
     Message=" Highly Positive, excellent for investing!"
 
 def updater():
-    os.system('python Tweet_Dumper.py Titan')
-    os.system('python Stock_Dumper.py Titan')
+    os.system('python Tweet_Dumper00.py')
+    os.system('python Stock_Dumper00.py')
 
 #
 #printing to GUI label
@@ -153,13 +153,13 @@ root = Tk()
 w = root.winfo_screenwidth()
 # h = root.winfo_screenheight()
 # root.geometry("{0}x{1}+0+0".format(w,h))
-root.title("Titan Stock Price Prediction and Sentiment Analysis")
+root.title("Inox Leisure Ltd Stock Price Prediction and Sentiment Analysis")
 container1 = Frame(root, bg = "#7BABEB")
 container1.pack( fill = "both")
 container = Frame(root, bg = "#EEF3F7")
 container.pack(expand = True, fill = "both")
 PP =((predicted_stock_price[24])+(predicted_price))/2
-Label(container, text="Tomorrow's Predicted High Price for the Titans stock in INR",font=("Times", "15","bold"),bg = "#EEF3F7",fg="#737373").pack(fill='x')
+Label(container, text="Tomorrow's Predicted High Price for the Leisure Ltd stock in INR",font=("Times", "15","bold"),bg = "#EEF3F7",fg="#737373").pack(fill='x')
 if(PP>real_stock_price[24]):
 	Label(container, text=PP, font=("Times", "15","bold"), fg="green",bg = "#EEF3F7").pack(fill='x')
 else:
